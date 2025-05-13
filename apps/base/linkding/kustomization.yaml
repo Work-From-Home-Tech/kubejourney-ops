@@ -4,4 +4,4 @@ resources:
   - deployment.yaml
   - namespace.yaml
   - storage.yaml
-#  - loadbalancer.yaml
+  - loadbalancer.yaml
