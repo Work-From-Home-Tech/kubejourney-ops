@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloudflared
+  template:
+    metadata:
+      labels:
+        app: cloudflared
+    spec:
+      containers:
+        - name: cloudflared
+          image: cloudflare/cloudflared:latest
+          args:
+          - tunnel
+
+          # Points cloudflared to the config map file
+          - --config
+          - /etc/cloudflared/config/config.yaml
+          - run
+          livenessProbe:
+            httpGet:
+              # Cloudflared /ready endpoint that returns a 200 s
+              path: /ready
+              port: 2000
+            failureThreshold: 1
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          volumeMounts:
+          - name: config
+            mountPath: /etc/cloudflared/config
+            readOnly: true
+          # Each tunnel has an associated "Credentials file"
+          - name: creds
+            mountPath: /etc/cloudflared/creds
+            readOnly: true
+      volumes:
+        - name: creds
+          secret:
+            secretName: tunnel-credentials
+
+        # Create a config.yaml file from the ConfigMap below.
+        - name: config
+          configMap:
+            name: cloudflared
+            items:
+            - key: config.yaml
+              path: config.yaml
+---
+# This is the configMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared
+data:
+  config.yaml: |
+    # Name of the tunnel you want to run
+    tunnel: links
+        
+    credentials-file: /etc/cloudflared/creds/credentials.json
+
+    metrics: 0.0.0.0:2000
+    no-autoupdate: true
+
+    ingress:
+    - hostname: links.kubejourney.com
+      service: http://linkding:9090
+
+    # This rule send traffic to the built-in hello-world HTTP server
+    - hostname: hello.example.com
+      service: hello_world
+
+    # This rule matches any traffic that didn't match a previous rule
+    - service: http_status:404
