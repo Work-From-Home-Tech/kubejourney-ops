@@ -90,7 +90,7 @@ data:
     # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
     ingress:
     - hostname: links.kubejourney.com
-      service: http://linkding:9090
+      service: http://linkding-tunnel:9090
 
     # This rule send traffic to the built-in hello-world HTTP server
     - hostname: hello.example.com
