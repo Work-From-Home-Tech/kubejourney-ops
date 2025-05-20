@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: linkding
 resources:
   - ../../base/linkding
-  - cloudflared.yaml
-  - kj-secret.yaml
+  #- cloudflared.yaml
+  #- kj-secret.yaml
