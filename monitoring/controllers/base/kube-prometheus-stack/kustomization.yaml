@@ -4,6 +4,6 @@ kind: Kustomization
 metadata:
   name: kube-prometheus-stack
 resources:
-  #- namespace.yaml
-  #- repository.yaml
-  #- release.yaml
+  - namespace.yaml
+  - repository.yaml
+  - release.yaml
