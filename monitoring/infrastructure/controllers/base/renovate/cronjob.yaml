@@ -11,15 +11,15 @@ spec:
       template:
         spec:
           containers:
-          - image: renovate/renovate:latest
-            name: renovate
-            args:
-              - Work-From-Home-Tech/kubejourney-ops
+            - image: renovate/renovate:latest
+              name: renovate
+              args:
+                - Work-From-Home-Tech/kubejourney-ops
 
-            envFrom:
-              - secretRef:
-                  name: renovate-container-env
-                configMapRef:
-                  name: renovate-configmap
+              envFrom:
+                - secretRef:
+                    name: renovate-container-env
+                  configMapRef:
+                    name: renovate-configmap
 
           restartPolicy: Never
