@@ -6,5 +6,6 @@ resources:
   #- helmrelease.yaml
   #- helmrepository.yaml
   #- tailscale-rbac.yaml
+  - namespace.yaml
   - tailscale-secret.yaml
   - tailscale-token.yaml
