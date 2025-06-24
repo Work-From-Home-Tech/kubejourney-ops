@@ -16,5 +16,5 @@ spec:
         app: audiobookshelf
     spec:
       containers:
-      - image: advplyr/audiobookshelf:2.24.0
+      - image: advplyr/audiobookshelf:2.25.1
         name: audiobookshelf
