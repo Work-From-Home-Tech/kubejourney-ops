@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - helmrelease.yaml
   - helmrepository.yaml
-  - rancher-values.yaml
+  - rancher-secret.yaml
