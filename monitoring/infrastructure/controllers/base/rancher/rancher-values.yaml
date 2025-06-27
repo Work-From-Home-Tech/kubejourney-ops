@@ -1,0 +1,18 @@
+hostname: 192.168.10.36.sslip.io
+replicas: 1
+bootstrapPassword: HBRdHcOEoARENi3t78P4
+sops:
+    age:
+        - recipient: age1da0xdujr5nskquwzpazsa4v7u5qv9a8vrttpue75apphqu9urfys85ad5l
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBLOW8zRVJwODRVL0VKSzI0
+            QVp4Y2tQRlBlSmRkZHZiZXR2QXBhQjQxQjBrCjl4VnRKL25lTkxyNXh5Z0w0bXB1
+            SXd3b2xkdk5GSUs4V044bkpZWDFtYWcKLS0tIDZuMFFmKzMxZk1FMXVDZDhSL0h2
+            Z2dQd2YyQk4waEp3R0NaTnp5alVOaWMKhZLrKsEIzemiWQTnBB5ly/u189Jyg5c9
+            jz1f5YamSI7iXC08+BlS8QuDEVWGP5HTwz60KJOoyTiAGRrcDNE+Ug==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-06-27T02:35:57Z"
+    mac: ENC[AES256_GCM,data:NPFLgCZy+GubjcMYtGEwDVvXjCAy9ZbAdo2FNk+0MDERcwxo+X6E4E5Dck09iWyqm9wI8g4mXF/pUA6zVHkoomwgGHBUxXH0mng+Qxq4L1QBcORwYjBEGcXkxAhUBHTWre+Ey7Rrw3JabvO4xtbvxvpTuacvs4TRAB8E+W3qZco=,iv:0PQWt17308CQvxGcDy1jN9ZAhpgWKv0NW96K5/00UG0=,tag:Nr4FJ7efVdJQfY3wdXsneg==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.10.2

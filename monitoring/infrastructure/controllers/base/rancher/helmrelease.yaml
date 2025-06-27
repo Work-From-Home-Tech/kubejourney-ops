@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: rancher
-      version: 2.8.2        # or leave blank for latest
+      version: 2.8.2
       sourceRef:
         kind: HelmRepository
         name: rancher-latest
@@ -16,12 +16,6 @@ spec:
   install:
     createNamespace: true
   targetNamespace: cattle-system
-  values:
-    hostname: 192.168.10.36.sslip.io
-    replicas: 1
-    bootstrapPassword: '{{ .ValuesFrom.secrets.bootstrapPassword }}'
-  valuesFrom:
-    - kind: Secret
-      name: bootstrap-password
-      valuesKey: bootstrapPassword
+  valuesFiles:
+    - ./rancher-values.yaml
 
