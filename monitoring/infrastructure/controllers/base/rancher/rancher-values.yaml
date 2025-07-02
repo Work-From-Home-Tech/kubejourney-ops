@@ -1,4 +1,4 @@
-hostname: 192.168.10.36.sslip.io
+hostname: rancher.jeffnet.online
 replicas: 1
 bootstrapPassword: HBRdHcOEoARENi3t78P4
 sops:
