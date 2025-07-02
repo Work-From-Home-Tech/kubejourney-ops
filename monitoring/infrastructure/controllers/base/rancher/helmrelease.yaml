@@ -17,7 +17,7 @@ spec:
     createNamespace: true
   targetNamespace: cattle-system
   values:
-    hostname: 192.168.10.36.sslip.io
+    hostname: rancher.jeffnet.online
     replicas: 1
   valuesFrom:
     - kind: Secret
